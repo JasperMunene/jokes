@@ -32,4 +32,4 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/joke-genius.git
+git clone https://github.com/JasperMunene/jokes.git
