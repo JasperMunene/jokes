@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Open+Sans&display=swap');
+
+:root{
+    --header-font:'Comic Neue', cursive;
+    --body-font:'Open Sans', sans-serif;
+    --header-color:#3498db;
+    --hero-color:#f9e79f;
+    --button-color:#e67e22;
+}
+
+body{
+    margin: 0;
+    font-family: var(--header-font);
+}
+
+
+
+.invalid-form {
+        border: 2px solid #0275d8 !important; 
+}
+
+.custom{
+    margin-top: 0 !important;
+    padding-top: 5px !important;
+}

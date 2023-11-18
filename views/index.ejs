@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Panda Jokes</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <div class="px-4 py-5 my-5 text-center custom">
+        <img class="d-block mx-auto mb-4" src="/images/1.png" alt="" width="250" height="250" style="margin-bottom: 19px !important ;">
+        <h1 class="display-5 fw-bold text-body-emphasis">
+            <% if (locals.userName || locals.selectedCategories) { %>
+                Hello <%= userName %> your <%= selectedCategories %> joke is ready😁
+            <% } else if (locals.error) { %>
+                <%= error %>
+            <% } else { %>
+              Welcome to Panda Jokes!
+               <% } %>
+        </h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">
+                <% if (locals.userName && locals.data && (locals.data.setup || locals.data.delivery)) { %>
+                    <%= locals.data.setup %> <%= locals.data.delivery %>
+                <% } else if (locals.data && locals.data.joke){ %>
+                    <%= locals.data.joke %>
+                <% } else { %>
+                  Where Laughter Meets Personalization <br> Ready for a good laugh? Enter your name below, and let us craft a personalized joke just for you!
+                  <% } %>
+            </p>
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/" method="post" id="jokeForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="John Doe" name="name" required>
+                    <label for="floatingInput">Name</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="jokeType" id="anyJoke" value="any" checked>
+                  <label class="form-check-label" for="anyJoke">Any Joke</label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="jokeType" id="customJoke" value="custom">
+                <label class="form-check-label" for="customJoke">Custom Joke</label>
+                
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="programming" name="categories" value="Programming">
+                    <label class="form-check-label" for="programming">Programming</label>
+                </div>
+        
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="misc" name="categories" value="Misc">
+                    <label class="form-check-label" for="misc">Misc</label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="dark" name="categories" value="Dark">
+                  <label class="form-check-label" for="dark">Dark</label>
+              </div>
+              
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="pun" name="categories" value="Pun">
+                <label class="form-check-label" for="pun">Pun</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="spooky" name="categories" value="Spooky">
+              <label class="form-check-label" for="spooky">Spooky</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="christmas" name="categories" value="Christmas">
+            <label class="form-check-label" for="christmas">Christmas</label>
+        </div>
+        
+            </div>
+                
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Generate Joke</button>
+                <hr class="my-4">
+                <small class="text-body-secondary">By clicking Generate Joke, you agree to the terms of use.</small>
+            </form>
+        </div>
+    </div>
+    <script src="/scripts/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
